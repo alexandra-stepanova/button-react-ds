@@ -36,5 +36,6 @@ jobs:
           folder: ./storybook-static
           branch: gh-pages
           clean: true
-          clean-exclude: pr:**/*, 
-                         .nojekyll
+          clean-exclude: |
+            .nojekyll
+            pr:**/*
