@@ -31,7 +31,6 @@ jobs:
         run: npm run build
           
       - name: Deploy Storybook
-        if: steps.cpv.outputs.is-new-version == 'true'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./storybook-static
