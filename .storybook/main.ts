@@ -1,4 +1,6 @@
 import type { StorybookConfig } from "@storybook/react-vite";
+const path = require("path");
+import { loadConfigFromFile, mergeConfig } from 'vite';
 const config: StorybookConfig = {
   stories: ["../src/**/**/*.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
@@ -12,6 +14,19 @@ const config: StorybookConfig = {
   },
   docs: {
     autodocs: "tag",
+  },
+  core: {
+    builder: '@storybook/builder-vite',
+  },
+  async viteFinal(config) {
+    const { config: libConfig } = await loadConfigFromFile(
+      path.resolve(__dirname, "../vite.config.ts")
+    );
+    if (process.env.NODE_ENV === "production") {
+      config.base = "wc-design-system"; // base URL for production
+    }
+    return mergeConfig(config, {plugins: libConfig.plugin
+    });
   },
 };
 export default config;
