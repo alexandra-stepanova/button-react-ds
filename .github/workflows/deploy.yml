@@ -39,3 +39,9 @@ jobs:
           clean: true
           clean-exclude:
             pr:**/*
+            
+      - name: Modify Permissions-Policy header
+        run: |
+          echo "permissions-policy:" >> ./storybook-static/_headers
+          echo "  - interest-cohort='none'" >> ./storybook-static/_headers
+        if: success()
