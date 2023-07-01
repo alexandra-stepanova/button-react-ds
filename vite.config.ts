@@ -14,4 +14,9 @@ export default defineConfig({
   plugins: [
     react(),
   ],
+  server: {
+    headers: {
+      'Permissions-Policy': 'interest-cohort=()',
+    },
+  },
 });
