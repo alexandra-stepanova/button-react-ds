@@ -23,7 +23,7 @@ const config: StorybookConfig = {
       path.resolve(__dirname, "../vite.config.ts")
     );
     if (process.env.NODE_ENV === "production") {
-      config.base = "wc-design-system"; // base URL for production
+      config.base = "button-react-ds"; // base URL for production
     }
     return mergeConfig(config, {plugins: libConfig.plugin
     });
