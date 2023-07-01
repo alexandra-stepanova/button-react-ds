@@ -1,13 +1,13 @@
 import type { StorybookConfig } from "@storybook/react-vite";
-const path = require("path");
-import { loadConfigFromFile, mergeConfig } from 'vite';
+import { defineConfig } from 'vite';
+
 const config: StorybookConfig = {
   stories: ["../src/**/**/*.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-    '@storybook/addon-a11y',
+    "@storybook/addon-a11y",
   ],
   framework: {
     name: "@storybook/react-vite",
@@ -20,14 +20,20 @@ const config: StorybookConfig = {
     builder: '@storybook/builder-vite',
   },
   async viteFinal(config) {
-    const { config: libConfig } = await loadConfigFromFile(
-      path.resolve(__dirname, "../vite.config.ts")
-    );
     if (process.env.NODE_ENV === "production") {
-      config.base = "wc-design-system"; // base URL for production
+      config.base = "button-react-ds"; // base URL for production
     }
-    return mergeConfig(config, {plugins: libConfig.plugin
-    });
+
+    // Modify Permissions-Policy header
+    config.server = {
+      ...config.server,
+      headers: {
+        'Permissions-Policy': 'interest-cohort=()',
+      },
+    };
+
+    return config;
   },
 };
-export default config;
+
+export default defineConfig(config);
