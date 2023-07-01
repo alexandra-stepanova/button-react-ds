@@ -34,14 +34,13 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./storybook-static
-          jekyll: false
+          jekyll: true
           branch: gh-pages
           clean: true
           clean-exclude:
             pr:**/*
-            
-      - name: Modify Permissions-Policy header
+          
+      - name: Create Jekyll configuration
         run: |
-          echo "permissions-policy:" >> ./storybook-static/_headers
-          echo "  - interest-cohort='none'" >> ./storybook-static/_headers
+          echo "permissions_policy: interest-cohort=()" >> ./storybook-static/_config.yml
         if: success()
