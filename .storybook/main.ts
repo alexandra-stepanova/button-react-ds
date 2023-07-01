@@ -1,6 +1,6 @@
 import type { StorybookConfig } from "@storybook/react-vite";
 const path = require("path");
-import { loadConfigFromFile, mergeConfig } from 'vite';
+import { loadConfigFromFile } from 'vite';
 const config: StorybookConfig = {
   stories: ["../src/**/**/*.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
@@ -26,8 +26,7 @@ const config: StorybookConfig = {
     if (process.env.NODE_ENV === "production") {
       config.base = "button-react-ds"; // base URL for production
     }
-    return mergeConfig(config, {plugins: libConfig.plugin
-    });
+    return Object.assign(config, { plugins: libConfig.plugins });
   },
 };
 export default config;
