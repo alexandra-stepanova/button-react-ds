@@ -3,6 +3,7 @@ import { UserConfig, defineConfig } from 'vite';
 
 const config: StorybookConfig = {
   stories: [
+    "../src/**/*.mdx",
     "../src/**/*.stories.mdx",
     "../src/**/*.stories.@(js|jsx|ts|tsx)",
   ],
