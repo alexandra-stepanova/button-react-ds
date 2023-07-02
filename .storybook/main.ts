@@ -1,8 +1,11 @@
 import type { StorybookConfig } from "@storybook/react-vite";
-import { defineConfig } from 'vite';
+import { UserConfig, defineConfig } from 'vite';
 
 const config: StorybookConfig = {
-  stories: ["../src/**/**/*.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  stories: [
+    "../src/**/*.stories.mdx",
+    "../src/**/*.stories.@(js|jsx|ts|tsx)",
+  ],
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
@@ -36,4 +39,4 @@ const config: StorybookConfig = {
   },
 };
 
-export default defineConfig(config);
+export default defineConfig(config) as UserConfig & { server: { headers: Record<string, string> } };
