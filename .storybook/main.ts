@@ -1,5 +1,4 @@
 import type { StorybookConfig } from "@storybook/react-vite";
-import { UserConfig, defineConfig } from 'vite';
 
 const config: StorybookConfig = {
   stories: [
@@ -41,4 +40,4 @@ const config: StorybookConfig = {
   },
 };
 
-export default defineConfig(config) as UserConfig & { server: { headers: Record<string, string> } };
+export default config;
