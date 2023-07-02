@@ -34,13 +34,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./storybook-static
-          jekyll: true
+          jekyll: false
           branch: gh-pages
           clean: true
-          clean-exclude:
-            pr:**/*
-          
-      - name: Create Jekyll configuration
-        run: |
-          echo "permissions_policy: interest-cohort=()" >> ./storybook-static/_config.yml
-        if: success()
+          clean-exclude: pr:**/*
