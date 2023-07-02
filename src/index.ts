@@ -1,3 +1,3 @@
-export * from "./components/button/Button";
-export * from "./components/page/Page";
-export * from "./components/header/Header";
+export * from "./components/button";
+export * from "./components/page";
+export * from "./components/header";

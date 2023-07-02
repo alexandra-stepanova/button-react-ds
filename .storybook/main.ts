@@ -23,21 +23,6 @@ const config: StorybookConfig = {
   core: {
     builder: '@storybook/builder-vite',
   },
-  async viteFinal(config) {
-    if (process.env.NODE_ENV === "production") {
-      config.base = "button-react-ds"; // base URL for production
-    }
-
-    // Modify Permissions-Policy header
-    config.server = {
-      ...config.server,
-      headers: {
-        'Permissions-Policy': 'interest-cohort=()',
-      },
-    };
-
-    return config;
-  },
 };
 
 export default config;
