@@ -13,15 +13,15 @@ const config: StorybookConfig = {
   docs: {
     autodocs: "tag"
   },
-  async viteFinal(config) {
-    if (process.env.NODE_ENV === "production") {
-      config.base = "button-react-ds"; // base URL for production
-    }
+  // async viteFinal(config) {
+  //   if (process.env.NODE_ENV === "production") {
+  //     config.base = "button-react-ds"; // base URL for production
+  //   }
 
-    if (process.env.BASE_URL) {
-      config.base = process.env.BASE_URL;
-    }
-    return mergeConfig(config);
-  }
+  //   if (process.env.BASE_URL) {
+  //     config.base = process.env.BASE_URL;
+  //   }
+  //   return mergeConfig(config);
+  // }
 };
 export default config;
