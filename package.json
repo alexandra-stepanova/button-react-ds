@@ -2,9 +2,11 @@
   "name": "button-ds",
   "version": "0.0.1",
   "scripts": {
+    "dev": "vite",
     "build": "storybook build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "start": "storybook dev -p 6006"
+    "start": "storybook dev -p 6006",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@storybook/addon-a11y": "^7.0.24",
