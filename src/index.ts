@@ -1,3 +1,3 @@
-export * from "./components/button";
-export * from "./components/page";
-export * from "./components/header";
+export * from "./components/button/index.ts";
+export * from "./components/page/index.ts";
+export * from "./components/header/index.ts";
