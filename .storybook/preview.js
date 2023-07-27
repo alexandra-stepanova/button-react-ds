@@ -3,9 +3,8 @@
 
 import React from 'react';
 
-import { Preview } from '@storybook/react';
 
-const preview: Preview = {
+const preview = {
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
   },
